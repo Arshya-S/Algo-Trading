@@ -17,6 +17,7 @@ static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::stri
   return size * nmemb;
 }
 
+
 std::string Base64Decode(const std::string& encoded) {
   BIO *bio = BIO_new_mem_buf(encoded.c_str(), encoded.length());
   BIO *b64 = BIO_new(BIO_f_base64());
