@@ -1,1 +1,22 @@
+# Executables
+trading_app
+ws_client
+*.o
+*.out
+*.exe
+
+# Environment variables
 .env
+.envrc
+
+# Build artifacts
+build/
+bin/
+*.dSYM/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

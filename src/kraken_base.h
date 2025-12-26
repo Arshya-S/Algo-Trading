@@ -5,10 +5,8 @@ class KrakenBase {
  public:
   KrakenBase(const std::string& api_key, const std::string& private_key, const std::string& base_endpoint);
   virtual ~KrakenBase() = default;
-
- protected:
-  void AuthenticateWithApi();
   std::string GetAccountBalance();
+  
 
  private:
   std::string api_key_;

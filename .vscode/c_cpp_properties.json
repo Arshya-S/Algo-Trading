@@ -5,7 +5,8 @@
       "includePath": [
         "${workspaceFolder}/**",
         "/opt/homebrew/opt/openssl@3/include",
-        "/opt/homebrew/opt/curl/include"
+        "/opt/homebrew/opt/curl/include",
+        "/opt/homebrew/include"
       ],
       "defines": [],
       "compilerPath": "/usr/bin/clang++",

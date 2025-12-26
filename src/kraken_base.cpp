@@ -17,18 +17,17 @@ static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::stri
   return size * nmemb;
 }
 
-
 std::string Base64Decode(const std::string& encoded) {
   BIO *bio = BIO_new_mem_buf(encoded.c_str(), encoded.length());
   BIO *b64 = BIO_new(BIO_f_base64());
   bio = BIO_push(b64, bio);
   BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
   
-  char buffer[encoded.length()];
-  int len = BIO_read(bio, buffer, encoded.length());
+  std::vector<char> buffer(encoded.length());
+  int len = BIO_read(bio, buffer.data(), encoded.length());
   BIO_free_all(bio);
   
-  return std::string(buffer, len);
+  return std::string(buffer.data(), len);
 }
 
 std::string Base64Encode(const unsigned char* buf, size_t len) {
@@ -45,10 +44,6 @@ std::string Base64Encode(const unsigned char* buf, size_t len) {
   BIO_free_all(bio);
   
   return result;
-}
-
-void KrakenBase::AuthenticateWithApi() {
-  std::cout << GetAccountBalance() << std::endl;
 }
 
 std::string KrakenBase::GetAccountBalance() {
