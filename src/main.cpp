@@ -1,5 +1,5 @@
-#include "kraken_base.h"
-#include "kraken_websocket_candle_stream.h"
+#include "rest/kraken_base.h"
+#include "websocket/kraken_websocket_candle_stream.h"
 #include <iostream>
 #include <cstdlib>
 #include <csignal>
@@ -38,7 +38,7 @@ void printCandle(const Candle& candle) {
     std::cout << "  Low:    " << RED << "$" << candle.low << RESET << std::endl;
     std::cout << "  Close:  " << (is_up ? GREEN : RED) << "$" << candle.close 
               << " " << (is_up ? "▲" : "▼") << RESET << std::endl;
-    std::cout << "  Volume: " << CYAN << candle.volume << " ETH" << RESET << std::endl;
+    std::cout << "  Volume: " << CYAN << candle.volume << RESET << std::endl;
     std::cout << "  VWAP:   " << YELLOW << "$" << candle.vwap << RESET << std::endl;
     std::cout << "  Trades: " << candle.trades << std::endl;
     
